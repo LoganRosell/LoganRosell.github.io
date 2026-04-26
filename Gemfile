@@ -1,14 +1,19 @@
 source 'https://rubygems.org'
 
-gem 'jekyll', '~> 4.3'
+gem 'jekyll', '3.9.3'
 
 group :jekyll_plugins do
   gem 'jekyll-feed'
   gem 'jekyll-sitemap'
   gem 'jekyll-redirect-from'
   gem 'jemoji'
+  gem 'jekyll-gist'
+  gem 'jekyll-paginate'
+  gem 'jekyll-include-cache'
+  gem 'jekyll-seo-tag'
+  gem 'jekyll-avatar'
+  gem 'jekyll-remote-theme'    # Added for theme support
+  gem 'kramdown-parser-gfm'    # <--- THE FIX for your current error
 end
 
-# Add these lines to bypass the eventmachine dependency
 gem 'webrick', '~> 1.8'
-gem 'eventmachine', git: 'https://github.com/eventmachine/eventmachine.git', branch: 'master'
