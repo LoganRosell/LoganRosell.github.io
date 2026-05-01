@@ -12,8 +12,8 @@ group :jekyll_plugins do
   gem 'jekyll-include-cache'
   gem 'jekyll-seo-tag'
   gem 'jekyll-avatar'
-  gem 'jekyll-remote-theme'    # Added for theme support
-  gem 'kramdown-parser-gfm'    # <--- THE FIX for your current error
+  gem 'jekyll-remote-theme'
+  gem 'kramdown-parser-gfm'
 end
 
 gem 'webrick', '~> 1.8'
