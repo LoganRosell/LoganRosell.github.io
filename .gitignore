@@ -18,6 +18,21 @@ package-lock.json
 
 # Ignore folders related to IDEs
 .vscode/
+.idea/
 
 # Ignore files created by MacOS
 .DS_Store
+
+# Sensitive Info
+.env
+.env.local
+*.pem
+*.key
+*.bfg-report/
+
+# Common Folders
+node_modules/
+dist/
+build/
+__pycache__/
+
