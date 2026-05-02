@@ -15,6 +15,8 @@ RUN groupadd -g 1000 vscode && \
 # Set the working directory
 WORKDIR /usr/src/app
 
+ENV BUNDLE_PATH=/usr/local/bundle
+ENV PATH="${BUNDLE_PATH}/bin:${PATH}"
 # Set permissions for the working directory
 RUN chown -R vscode:vscode /usr/src/app
 
