@@ -16,7 +16,12 @@ RUN groupadd -g 1000 vscode && \
 WORKDIR /usr/src/app
 
 ENV BUNDLE_PATH=/usr/local/bundle
-ENV PATH="${BUNDLE_PATH}/bin:${PATH}"
+ENV BUNDLE_BIN=/usr/local/bundle/bin
+ENV PATH="${BUNDLE_BIN}:${PATH}"
+
+# Ensure the non-root user owns the bundle directory too
+RUN mkdir -p /usr/local/bundle && chown -R vscode:vscode /usr/local/bundle
+
 # Set permissions for the working directory
 RUN chown -R vscode:vscode /usr/src/app
 
@@ -31,7 +36,7 @@ COPY Gemfile ./
 # Install bundler and dependencies
 RUN gem install connection_pool:2.5.0
 RUN gem install bundler:2.3.26
-RUN bundle install
+RUN bundle install --binstubs
 
 # Command to serve the Jekyll site
 CMD ["jekyll", "serve", "-H", "0.0.0.0", "-w", "--config", "_config.yml,_config_docker.yml"]
