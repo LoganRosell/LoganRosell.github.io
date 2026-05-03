@@ -1,6 +1,6 @@
 ---
-title: "Pedestrian Fatalities in Vision Zero US Cities"
-excerpt: "Short description of portfolio item number 1<br/><img src='/images/pedestrian_fatalities_dasbhoard_thumbnail.png' width='500'>"
+title: "Project Title"
+excerpt: "Short description of portfolio item number 1<br/><img src='/images/500x300.png' width='500'>"
 collection: portfolio
 ---
 
