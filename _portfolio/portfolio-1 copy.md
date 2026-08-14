@@ -21,11 +21,11 @@ mathjax: true
 * **Core Metric:** Carbon Intensity (mtCO2 per TWh), calculated as million metric tons of CO2 produced per terawatt-hour of electricity generated from coal.
 * **Hypotheses Tested:**
   * **Question 1 (Regional Variation):**
-    * $H_{0A}$: Coal power CO2 emission intensity does not vary between global regions.
-    * $H_{1A}$: Coal power CO2 emission intensity does vary between global regions.
+    * $$H_{0A}$$: Coal power CO2 emission intensity does not vary between global regions.
+    * $$H_{1A}$$: Coal power CO2 emission intensity does vary between global regions.
   * **Question 2 (Temporal Trends):**
-    * $H_{0B}$: Coal power CO2 emission intensity does not vary over time between global regions.
-    * $H_{1B}$: Coal power CO2 emission intensity does vary over time between global regions.
+    * $$H_{0B}$$: Coal power CO2 emission intensity does not vary over time between global regions.
+    * $$H_{1B}$$: Coal power CO2 emission intensity does vary over time between global regions.
 
 ---
 
