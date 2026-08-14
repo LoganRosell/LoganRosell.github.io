@@ -10,18 +10,16 @@ redirect_from:
   - /portfolio/portfolio_2_pedestrian_fatalities/
 ---
 
-# Pedestrian Fatalities in Vision Zero US Cities
-
 ## Project Overview
-**Vision Zero** is a strategy aimed at eliminating traffic fatalities and severe injuries while promoting safe, equitable mobility. This data engineering and visualization project analyzed fatal pedestrian accidents across **61 US Vision Zero cities** over a 6-year study period (**2018–2023**) to evaluate key environmental, geographic, and temporal conditions.
+Vision Zero is a strategy aimed at eliminating traffic fatalities and severe injuries while promoting safe, equitable mobility. This data engineering and visualization project analyzed fatal pedestrian accidents across 61 US Vision Zero cities over a 6-year study period (2018–2023) to evaluate key environmental, geographic, and temporal conditions.
 
 **Core Question:** *Among cities that have adopted Vision Zero, what conditions are most commonly reported in fatal car accidents involving a pedestrian?*
 
 ---
 ## Data Engineering Architecture & Pipeline
-* **Data Ingestion:** Automated Python pipelines querying the **NHTSA Fatality Analysis Reporting System (FARS)** API, **Open-Meteo Historical Weather** API, and **US Census Bureau (ACS 1-Year)** API.
-* **Transformation & Normalization:** Python and SQL scripts handling schema design, fuzzy matching for coordinates/city names, 2020 Census imputation, and filtering cities with populations $\ge 65\text{k}$.
-* **Serving Layer:** PostgreSQL database hosted via Railway serving structured views to an interactive **Grafana** dashboard.
+* **Data Ingestion:** Automated Python pipelines querying the NHTSA Fatality Analysis Reporting System (FARS) API, Open-Meteo Historical Weather API, and US Census Bureau (ACS 1-Year) API.
+* **Transformation & Normalization:** Python and SQL scripts handling schema design, fuzzy matching for coordinates/city names, 2020 Census imputation, and filtering cities with populations >65K.
+* **Serving Layer:** PostgreSQL database hosted via Railway serving structured views to an interactive Grafana dashboard.
 ---
 
 ## Dashboard Breakdown
