@@ -6,13 +6,23 @@ use_math: true
 mathjax: true
 ---
 
-
 ## Overview
 * **Author:** Logan Rosell (Willamette University, School of Computing & Information Sciences)
 * **Course:** DATA 501: Data Science With R
 * **Date:** December 10, 2025
 * **Data Source:** Ember Yearly Electricity Data (2000–2024, covering 215 countries/economies)
 * **Stack:** R (`tidyverse`, `ggplot2`, `car`, `lawstat`, `gtsummary`, `gt`, `sf`, `rnaturalearth`, `skimr`, `performance`, `rsq`)
+
+---
+
+## Executive Summary & Outcomes
+
+This project evaluates whether the carbon intensity (mtCO2 per TWh) of coal-fired electricity generation varies across global regions and over a 25-year period (2000–2024). Using historical generation and emissions data from Ember, I conducted exploratory data analysis, checked parametric assumptions, ran non-parametric hypothesis tests, and fit regional linear regression models. The final deliverables included a research paper and slide presentation.
+
+### Key Outcomes:
+* **Statistically Significant Regional Disparities:** Median emissions intensity differed across all regional pairings ($p < 0.01$), ranging from 0.858 mtCO2/TWh in Africa to 0.976 mtCO2/TWh in Europe.
+* **Isolated Temporal Declines:** Asia ($R^2 = 0.936$) and Oceania ($R^2 = 0.861$) were the only regions exhibiting consistent, statistically significant declines in carbon intensity over time.
+* **Policy Implication:** In 2024, efficiency improvements avoided 14.68 mtCO2 in Asia and 0.045 mtCO2 in Oceania—accounting for just 0.18% and 0.039% of their respective coal power emissions. Incremental plant-level efficiency gains are negligible compared to gross generation volume; phasing out coal capacity remains the only viable path to meaningful emissions reductions.
 
 ---
 
@@ -71,12 +81,3 @@ $$
 * **Asia & Oceania:** Displayed stable linear decreases in carbon intensity over time.
 * **Europe & Latin America:** Displayed weak linear fit and non-linear patterns across smaller multi-year intervals.
 * **Africa, Middle East, & North America:** Failed standard linear regression normality assumptions.
-
----
-
-## Practical Impact & Takeaways
-* **Regional Disparities:** Median coal emission intensity varies significantly by region, ranging from 0.858 mtCO2/TWh in Africa to 0.976 mtCO2/TWh in Europe.
-* **Scale of Efficiency Gains in 2024:**
-  * **Asia:** Generated 8,738 TWh from coal in 2024, saving an expected 14.68 mtCO2 due to yearly intensity improvements (equivalent to the annual footprint of $$\approx 978,666$$ Americans).
-  * **Oceania:** Generated 130 TWh from coal in 2024, saving an expected 0.045 mtCO2 (equivalent to $$\approx 3,000$$ Americans).
-* **The Bottom Line:** These efficiency savings accounted for only **0.18%** of Asia's and **0.039%** of Oceania's 2024 coal power emissions. Incremental gains in plant efficiency and fuel quality are negligible compared to total output; phasing out coal generation remains the primary driver for lowering power sector emissions.
