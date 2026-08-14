@@ -1,9 +1,6 @@
 ---
 title: "Visualizing Homelessness Services In Portland"
-excerpt: "A spatial and econometric analysis exploring the relationship between neighborhood homelessness,
- local support services, and reported crime across Portland, OR. Combines regression modeling with interactive
-  choropleth mapping of city data (including the Impact Reduction Program) to identify underserved areas and
-   evaluate municipal service allocation. <br/><img src='/images/homelessness_pdx_thumbnail.png' width='500'>"
+excerpt: "A spatial and statistical analysis exploring the relationship between neighborhood homelessness, local support services, and reported crime across Portland, OR. Combines regression modeling with interactive choropleth mapping of city data (including the Impact Reduction Program) to identify underserved areas and evaluate municipal service allocation.<br/><img src='/images/homelessness_pdx_thumbnail.png' width='500'>"
 collection: portfolio
 permalink: /portfolio/pdx-homelessness/
 redirect_from:
@@ -12,4 +9,49 @@ redirect_from:
   - /portfolio/portfolio_3_pdx_homelessness/
 ---
 
+## Overview
+* **Authors:** Logan Rosell, Talia Walderman (Willamette University, School of Computing & Information Sciences)
+* **Course:** DATA 502: Data Visualization
+* **Date:** April 22, 2026
+* **Data Sources:** City of Portland Impact Reduction Program (Clean & Posted Campsites), Portland Police Bureau Monthly Reported Crime Statistics, TriMet GTFS Data, PortlandMaps Open Data (Neighborhood Boundaries & Demographics), Oregon Metro RLIS (Major Arterials & River Polygons), 211info / Regional Service Directory
+* **Stack:** R (`tidyverse`, `sf`, `ggplot2`, `plotly`, `car`, `gtsummary`, `gt`, `tidygeocoder`, `ggmap`)
+
+---
+
+## Executive Summary & Outcomes
+
+This project analyzes the spatial distribution of unsheltered homelessness, municipal support services, transit accessibility, and reported crime across Portland neighborhoods. Using campsite enforcement records from the City of Portland's Impact Reduction Program (IRP) alongside crime reports, transit route networks, and local service directories, we integrated multi-source geospatial datasets in R to evaluate service gaps and resource accessibility. Deliverables included statistical regression models and an interactive choropleth visualization dashboard.
+
+### Key Outcomes:
+* **Identification of 3 Primary Encampment Corridors:** Campsite activity heavily concentrated along three major transit and arterial corridors across the city, highlighting that unsheltered communities cluster along high-mobility transit corridors.
+* **Severe Gaps in Critical Services:** Spatial overlap analysis revealed substantial deficits in emergency shelters and specialized healthcare facilities within the highest-density encampment corridors outside the downtown core.
+* **Accessibility and Mobility Constraints:** Because unsheltered populations face significant mobility constraints, service deficits in these outer arterial pockets cannot be resolved by centralized downtown facilities alone.
+* **Policy Recommendations:** Recommended targeting municipal resource allocation, mobile healthcare deployment, and transitional shelter capacity specifically to the identified outer-corridor clusters to improve accessibility where transit barriers are highest.
+
+---
+
+## Research Focus
+* **Research Question:** What is the spatial relationship between neighborhood-level homelessness, available support services, and documented crime across Portland, OR, and where is the city currently underserving its unsheltered residents?
+* **Core Metrics:**
+  * **IRP Encampment Activity:** Density of cleaned and posted campsite enforcement locations per neighborhood.
+  * **Service Proximity:** Geographic distribution and density of food assistance, emergency shelters, and healthcare providers.
+  * **Contextual Covariates:** Crime incident frequency, neighborhood demographic profiles, and proximity to major arterial roads and TriMet transit routes.
+
+---
+
+## Interactive Map & Spatial Analysis
+
 <iframe src="{{ site.baseurl }}/assets/pdx_homelessness_final.html" width="100%" height="600px" frameborder="0"></iframe>
+
+---
+
+## Analytical Methods & Spatial Modeling
+
+### 1. Geospatial Data Integration & Wrangling
+* Aggregated vector spatial boundaries across Portland neighborhoods with Oregon Metro arterial layers and river polygons using `sf`.
+* Geocoded municipal service locations and cross-referenced coordinates against TriMet GTFS transit networks to assess transit access.
+* Cleaned and normalized multi-year IRP clean/post records alongside monthly Portland Police Bureau crime statistics.
+
+### 2. Statistical & Econometric Modeling
+* Evaluated the relationship between encampment density, crime rates, and neighborhood-level demographics using multiple regression modeling in R.
+* Diagnosed model stability, collinearity, and residual distributions using `car`, `lmtest`, and `olsrr`.
