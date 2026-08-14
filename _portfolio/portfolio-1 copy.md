@@ -1,6 +1,6 @@
 ---
 title: "Regional and Temporal Variation in Coal Power's Emission Intensity: A Global Analysis (2000–2024)"
-excerpt: "A global statistical analysis evaluating whether the carbon intensity (mtCO2/TWh) of coal-fired electricity generation has varied across regions and over time. Utilizing Ember energy data and non-parametric tests alongside regional linear models in R, the project demonstrates that while regional differences and modest efficiency gains exist (notably in Asia and Oceania), phasing out coal capacity remains the only effective mechanism for substantial emissions reductions.<br/><img src='/images/500x300.png' width='500'>"
+excerpt: "A global statistical analysis evaluating whether the carbon intensity (mtCO2/TWh) of coal-fired electricity generation has varied across regions and over time. Utilizing Ember energy data and non-parametric tests alongside regional linear models in R, the project demonstrates that while regional differences and modest efficiency gains exist (notably in Asia and Oceania), phasing out coal capacity remains the only effective mechanism for substantial emissions reductions.<br/><img src='/images/dist_co2_per_twh_coal_power.png' width='500'>"
 collection: portfolio
 use_math: true
 mathjax: true
