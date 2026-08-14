@@ -32,12 +32,12 @@ mathjax: true
 ## Exploratory Data Analysis & Statistical Testing
 
 ### 1. Assumption Checking
-* **Normality:** A Shapiro-Wilk test on overall regional intensity yielded $W = 0.87914$ ($p = 1.117 \times 10^{-10}$), rejecting the null hypothesis of normality.
-* **Equal Variance:** A Brown-Forsythe test yielded a test statistic of $36.197$ ($p < 2.2 \times 10^{-16}$), rejecting the null of equal variance across regions.
+* **Normality:** A Shapiro-Wilk test on overall regional intensity yielded $$W = 0.87914$$ ($$p = 1.117 \times 10^{-10}$$), rejecting the null hypothesis of normality.
+* **Equal Variance:** A Brown-Forsythe test yielded a test statistic of $$36.197$$ ($$p < 2.2 \times 10^{-16}$$), rejecting the null of equal variance across regions.
 
 ### 2. Hypothesis A: Non-Parametric Regional Comparison
-* **Kruskal-Wallis Test:** $\chi^2 = 167.33$, $\text{df} = 6$, $p < 2.2 \times 10^{-16}$. The null hypothesis was rejected, confirming statistically significant differences in median emission intensities across regions.
-* **Pairwise Comparisons:** Pairwise Wilcoxon rank-sum exact tests demonstrated that all regional pairings exhibited statistically significant differences ($p < 0.01$).
+* **Kruskal-Wallis Test:** $$\chi^2 = 167.33$$, $$\text{df} = 6$$, $$p < 2.2 \times 10^{-16}$$. The null hypothesis was rejected, confirming statistically significant differences in median emission intensities across regions.
+* **Pairwise Comparisons:** Pairwise Wilcoxon rank-sum exact tests demonstrated that all regional pairings exhibited statistically significant differences ($$p < 0.01$$).
 
 | Region | N | Mean (mtCO2/TWh) | Median (mtCO2/TWh) | SD | Min | Max |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -54,8 +54,8 @@ mathjax: true
 ## Modeling Emission Intensity Over Time
 
 ### 1. Global Interaction Model
-* **Formula:** $\text{mtCO}_2\text{ per TWh}_i = \beta_0 + \beta_1 \text{Year}_i + \sum \alpha_j \text{Area}_{ji} + \sum \gamma_j (\text{Year}_i \times \text{Area}_{ji})$
-* **Diagnostics:** Despite an adjusted $R^2 = 0.998$ and statistically significant coefficients, the global model exhibited severe multicollinearity ($\text{GVIF} > 10$) and violated linearity, normality, and homoscedasticity assumptions.
+* **Formula:** $$\text{mtCO}_2\text{ per TWh}_i = \beta_0 + \beta_1 \text{Year}_i + \sum \alpha_j \text{Area}_{ji} + \sum \gamma_j (\text{Year}_i \times \text{Area}_{ji})$$
+* **Diagnostics:** Despite an adjusted $$R^2 = 0.998$$ and statistically significant coefficients, the global model exhibited severe multicollinearity ($$\text{GVIF} > 10$$) and violated linearity, normality, and homoscedasticity assumptions.
 
 ### 2. Region-Specific Linear Models
 
@@ -77,6 +77,6 @@ $$
 ## Practical Impact & Takeaways
 * **Regional Disparities:** Median coal emission intensity varies significantly by region, ranging from 0.858 mtCO2/TWh in Africa to 0.976 mtCO2/TWh in Europe.
 * **Scale of Efficiency Gains in 2024:**
-  * **Asia:** Generated 8,738 TWh from coal in 2024, saving an expected 14.68 mtCO2 due to yearly intensity improvements (equivalent to the annual footprint of $\approx 978,666$ Americans).
-  * **Oceania:** Generated 130 TWh from coal in 2024, saving an expected 0.045 mtCO2 (equivalent to $\approx 3,000$ Americans).
+  * **Asia:** Generated 8,738 TWh from coal in 2024, saving an expected 14.68 mtCO2 due to yearly intensity improvements (equivalent to the annual footprint of $$\approx 978,666$$ Americans).
+  * **Oceania:** Generated 130 TWh from coal in 2024, saving an expected 0.045 mtCO2 (equivalent to $$\approx 3,000$$ Americans).
 * **The Bottom Line:** These efficiency savings accounted for only **0.18%** of Asia's and **0.039%** of Oceania's 2024 coal power emissions. Incremental gains in plant efficiency and fuel quality are negligible compared to total output; phasing out coal generation remains the primary driver for lowering power sector emissions.
