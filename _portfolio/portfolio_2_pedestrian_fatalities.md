@@ -1,6 +1,6 @@
 ---
 title: "Pedestrian Fatalities in Vision Zero US Cities"
-excerpt: "Short description of portfolio item number 1<br/><img src='/images/pedestrian_fatalities_dasbhoard_thumbnail.png' width='500'>"
+excerpt: "An end-to-end data pipeline and interactive Grafana dashboard analyzing fatal pedestrian crashes across 61 Vision Zero cities from 2018 to 2023. Integrates federal crash records (FARS), historical weather, and US Census data using Python, PostgreSQL, and SQL to identify key roadway and environmental risk factors.<br/><img src='/images/pedestrian_fatalities_dasbhoard_thumbnail.png' width='500'>"
 collection: portfolio
 permalink: /portfolio/pedestrian-fatalities/
 redirect_from:
