@@ -1,6 +1,6 @@
 ---
 title: "How Anxiety and Depression Levels Differed Between US States and Regions Following COVID-19"
-excerpt: "An exploratory data analysis and longitudinal modeling project evaluating state- and regional-level mental health trends during the pandemic using CDC Household Pulse Survey data. Utilizing Python, Plotly, and scikit-learn, the project tracks biweekly symptom prevalence across 50 states to identify regional disparities and evaluate temporal fluctuations against major national events.<br/><img src='images/regional_variations_post_covid_plots/fig_1_trends_over_time.png' width='500'>"
+excerpt: "An exploratory data analysis and longitudinal modeling project evaluating state- and regional-level mental health trends during the pandemic using CDC Household Pulse Survey data. Utilizing Python, Plotly, and scikit-learn, the project tracks biweekly symptom prevalence across 50 states to identify regional disparities and evaluate temporal fluctuations against major national events.<br/><img src='/images/regional_variations_post_covid_plots/fig_1_trends_over_time.png' width='500'>"
 collection: portfolio
 use_math: true
 mathjax: true
@@ -26,7 +26,7 @@ This project investigates how reported symptom rates of anxiety and depressive d
 * **Modeling Limitations:** Simple linear models across time explained only ~19% of the overall variation ($$R^2 \approx 0.19$$), demonstrating that pandemic mental health dynamics followed distinct non-linear waves rather than a steady linear decline.
 
 <div style="text-align: center;">
-<img src="images/regional_variations_post_covid_plots/fig_1_trends_over_time.png" alt="Figure 1: Anxiety and Depression Trends Over Time with Events" width="800">
+<img src="/images/regional_variations_post_covid_plots/fig_1_trends_over_time.png" alt="Figure 1: Anxiety and Depression Trends Over Time with Events" width="800">
 <p><em>Figure 1: Percentage of the population with anxiety or depression over time, annotated with major national events.</em></p>
 </div>
 
@@ -67,7 +67,7 @@ Across all Census regions, symptom rates moved in parallel temporal waves, but w
 * **Midwest & Northeast:** Displayed the lowest symptom rates, with Midwestern states demonstrating greater stability during national surge periods.
 
 <div style="text-align: center;">
-<img src="images/regional_variations_post_covid_plots/fig_4_linear_reg_by_region.png" alt="Figure 4: Regional Regression of Symptoms Over Time" width="800">
+<img src="/images/regional_variations_post_covid_plots/fig_4_linear_reg_by_region.png" alt="Figure 4: Regional Regression of Symptoms Over Time" width="800">
 <p><em>Figure 4: Regression of the percentage of symptoms of depression or anxiety over time, faceted by US Census Region.</em></p>
 </div>
 
