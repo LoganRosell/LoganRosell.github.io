@@ -3,7 +3,7 @@ title: "How Anxiety and Depression Levels Differed Between US States and Regions
 excerpt: "An exploratory data analysis and longitudinal modeling project evaluating state- and regional-level mental health trends during the pandemic using CDC Household Pulse Survey data. Utilizing Python, Plotly, and scikit-learn, the project tracks biweekly symptom prevalence across 50 states to identify regional disparities and evaluate temporal fluctuations against major national events.<br/><img src='/images/regional_variations_post_covid_plots/fig_1_trends_over_time.png' width='500'>"
 collection: portfolio
 use_math: true
-mathjax: true
+katex: true
 ---
 
 ## Overview
