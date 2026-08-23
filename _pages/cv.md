@@ -25,14 +25,14 @@ Work experience
   * Developed and deployed custom AI agents to the Sales Team, enabling them to more deeply explore client-specific reports and better equip themselves to win deals.
 
 * **Technical Solutions Engineer**, Epic Systems, Jul 2023 - Aug 2025
-  * Completed the migration of patient scheduling data between enterprise systems using advanced Excel functions to clean, match, and validate millions of rows of data. 
+  *	De-risked high-stakes data migrations by serving as the primary technical advisor for five analyst teams; vetted architectural decisions to prevent long-term technical debt and ensured seamless integration of new Epic software modules. 
   * Worked with reporting experts to identify and fix data quality issues and implement new standards to prevent similar issues in the future. 
   * Maintained system continuity by rapidly reprioritizing work to address high-priority escalations, ensuring zero disruption to critical business operations while meeting project deadlines.
-  * Halved the division’s error backlog within 30 days, resolving 400+ unresolved data issues; independently managed data workflows from intake to delivery, streamlining processes to meet strict project timelines and quality standards. 
-  * Reduced new software error generation by 25% by architecting a cross-functional Root Cause Analysis (RCA) framework; facilitated weekly synchronization across departments and roles to institutionalize preventative documentation and process updates.
-  * Optimized system security and data stewardship by overseeing user-access provisioning for ~50,000 clinical and administrative staff; implemented auditing techniques using Excel to eliminate access-creep and ensure sensitive patient information was accessible only to authorized personnel.
+  * Halved the division’s error backlog within 30 days, resolving 400+ unresolved data issues; independently managed data workflows from intake to delivery, streamlining processes to meet strict project timelines and quality standards.
+  * Reduced software errors by 25% by architecting a cross-functional RCA framework and leading weekly alignment meetings to standardize preventative documentation.
+  * Secured sensitive data for ~50,000 users by managing clinical access provisioning and establishing Excel-based auditing workflows to eliminate access-creep.
   * Developed and deployed a high-scale metric overhaul for applications serving 305M patients, personally managing the design, code implementation, and rigorous QA auditing to guarantee accuracy in large-scale data reporting and reconciliation.
-  * Contributed to the development and roadmap for scheduling reporting tools across multiple internal database applications; served as a subject matter expert, aligning technical data models with the reporting needs of ~160 personnel and their enterprise customers.
+
 
 * **Executive Administrative Intern**, Pacific Lutheran University, May 2022 - May 2023
   * Collated and analyzed financial and administrative data in Excel and Raiser's Edge.
