@@ -82,10 +82,10 @@ Because the data lacked both normality and equal variance, I used the Kruskal-Wa
 
 $$
 \begin{aligned}
-\text{\textbf{Asia:}} \quad &\widehat{\text{mtCO}}_2\text{ per TWh}_i = 4.30 - 0.00168(\text{Year}_i) \quad (R^2 = 0.9358, \; p = 2.02 \times 10^{-15}) \\
-\text{\textbf{Oceania:}} \quad &\widehat{\text{mtCO}}_2\text{ per TWh}_i = 1.58 - 0.000347(\text{Year}_i) \quad (R^2 = 0.8610, \; p = 1.52 \times 10^{-11}) \\
-\text{\textbf{Latin America:}} \quad &\widehat{\text{mtCO}}_2\text{ per TWh}_i = 0.381 + 0.000251(\text{Year}_i) \quad (R^2 = 0.3138, \; p = 0.00212) \\
-\text{\textbf{Europe:}} \quad &\widehat{\text{mtCO}}_2\text{ per TWh}_i = 1.07 - 0.0000469(\text{Year}_i) \quad (R^2 = 0.0310, \; p = 0.1965)
+\textbf{Asia:} \quad &\widehat{\text{mtCO}}_2\text{ per TWh}_i = 4.30 - 0.00168(\text{Year}_i) \quad (R^2 = 0.9358, \; p = 2.02 \times 10^{-15}) \\
+\textbf{Oceania:} \quad &\widehat{\text{mtCO}}_2\text{ per TWh}_i = 1.58 - 0.000347(\text{Year}_i) \quad (R^2 = 0.8610, \; p = 1.52 \times 10^{-11}) \\
+\textbf{Latin America:} \quad &\widehat{\text{mtCO}}_2\text{ per TWh}_i = 0.381 + 0.000251(\text{Year}_i) \quad (R^2 = 0.3138, \; p = 0.00212) \\
+\textbf{Europe:} \quad &\widehat{\text{mtCO}}_2\text{ per TWh}_i = 1.07 - 0.0000469(\text{Year}_i) \quad (R^2 = 0.0310, \; p = 0.1965)
 \end{aligned}
 $$
 
