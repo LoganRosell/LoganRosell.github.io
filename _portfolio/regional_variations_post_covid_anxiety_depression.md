@@ -12,6 +12,7 @@ katex: true
 * **Date:** August 19, 2026
 * **Data Source:** CDC / NCHS Household Pulse Survey (PHQ-4 Mental Health Symptoms, biweekly from April 2020 to September 2023 across 50 states and DC)
 * **Stack:** Python (`pandas`, `numpy`, `matplotlib`, `seaborn`, `plotly`, `scipy`, `scikit-learn`, `statsmodels`)
+* **Project Source Files** [Post-Covid Anxietty & Depression Trends GitHub Repo](https://github.com/LoganRosell/regional_variations_post_covid_anxiety_depression)
 
 ---
 

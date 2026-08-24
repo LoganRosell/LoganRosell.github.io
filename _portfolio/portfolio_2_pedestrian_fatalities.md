@@ -16,6 +16,7 @@ redirect_from:
 * **Date:** May 17, 2026
 * **Data Sources:** NHTSA Fatality Analysis Reporting System (FARS) API, US Census Bureau ACS 1-Year API, Open-Meteo Historical Weather API, Census Gazetteer, FHWA Vision Zero Action Plans
 * **Stack:** Python, PostgreSQL, Railway, SQL, Grafana
+* **Project Source Files** [Pedestrian Fatalities Analysis GitHub Repo](https://github.com/LoganRosell/data_eng_pedestrian_project)
 
 ---
 
