@@ -16,6 +16,7 @@ katex: true
 * **Date:** December 10, 2025
 * **Data Source:** Ember Yearly Electricity Data (2000–2024, covering 215 countries/economies)
 * **Stack:** R (`tidyverse`, `ggplot2`, `car`, `lawstat`, `gtsummary`, `gt`, `sf`, `rnaturalearth`, `skimr`)
+* **Project Source Files** [Coal Power C02 Intensity GitHub Repo](https://github.com/LoganRosell/coal_power_co2_intensity)
 
 ---
 
