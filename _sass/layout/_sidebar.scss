@@ -323,3 +323,11 @@
     }
   }
 }
+
+.author__avatar img {
+  transition: opacity 0.2s ease-in-out;
+}
+
+.author__avatar:hover img {
+  content: url('/images/pixelated_profile_photo.jpg');
+}
