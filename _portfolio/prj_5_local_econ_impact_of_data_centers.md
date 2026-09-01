@@ -112,6 +112,11 @@ Where $$Y_{it}$$ represents the county outcome, $$\alpha_i$$ is the county fixed
 ## Machine Learning Counterfactuals (Conditional VAE)
 
 To complement the DiD framework, we trained a Conditional Variational Autoencoder (CVAE) in PyTorch to explore non-linear counterfactual county trajectories:
+
+<p align="center">
+  <img src="/images/local_econ_impact_of_data_centers/CVAE_diagram.png" alt="Conditional variational autoencoder model diagram" width="700" />
+</p>
+
 * Architecture: Symmetric encoder-decoder network:
   $$\text{Input (136)} \rightarrow 128 \rightarrow 16 \rightarrow \text{Latent (8)} \rightarrow 16 \rightarrow 128 \rightarrow \text{Output (136)}$$
 * Conditioning: Embedded vectors for year ($$16 \times 8$$) and log data center tier ($$6 \times 4$$).
