@@ -23,50 +23,50 @@ katex: true
 
 ## Executive Summary & Outcomes
 
-The rapid expansion of computing infrastructure—accelerated by cloud computing and the recent proliferation of generative AI and Large Language Models (LLMs)—has triggered intense debate over the local economic and environmental footprints of data centers. While municipal governments frequently offer aggressive tax incentives to attract data center developments, empirical research on their localized impacts has been constrained by expensive, proprietary data aggregators that obscure historical entry timing and facility locations.
+The recent expansion of data centers, accelerated by cloud computing and generative AI, has raised questions about their local economic and environmental footprints. While public discourse often focuses on power and water demands, their broader economic effects on surrounding communities have received less attention. Empirical research has also been hindered by proprietary datasets that restrict historical entry timing and facility locations.
 
-This capstone project overcomes that bottleneck by developing an open-source, reproducible time-series data pipeline tracking federal statistics under NAICS 518 (Computing Infrastructure Providers, Data Processing, Web Hosting, and Related Services) across all **3,100+ contiguous U.S. counties from 2007 to 2022**. Combining unsupervised machine learning (PCA and K-Means), spatial exposure buffer modeling (50-mile radii), staggered Difference-in-Differences (DiD) event-study regressions, and Conditional Variational Autoencoder (CVAE) counterfactual simulations, we evaluate how data center growth affects local labor markets, personal income, housing permits, and fine particulate matter ($$\text{PM}_{2.5}$$).
+This capstone project addresses that gap by building an open-source time-series pipeline using public federal data under NAICS 518 (Computing Infrastructure Providers, Data Processing, Web Hosting, and Related Services) across all contiguous U.S. counties from 2007 to 2022. We evaluate local economic effects by combining spatial exposure measures (50-mile buffers), unsupervised clustering (PCA and K-Means), staggered Difference-in-Differences (DiD) event-study regressions, and Conditional Variational Autoencoder (CVAE) counterfactual models.
 
 <p align="center">
   <img src="/images/local_econ_impact_of_data_centers/did_clusters_poster.png" alt="Difference-in-Differences Event Study Estimates Across County Clusters" width="750" />
 </p>
 
 ### Key Outcomes:
-* **The Urban Clustering vs. Rural Impact Paradox:** Unsupervised clustering reveals that data centers congregate predominantly in populous, metropolitan counties (Cluster 1 averages $$\approx 10$$ facilities vs. $$\approx 1$$ in Cluster 0), refuting the common assumption that data centers are primarily built in remote areas. However, **statistically significant economic impacts are concentrated almost exclusively in rural counties (Cluster 0)**.
-* **Regional Employment Spillovers:** Counties with substantial regional exposure ($$\ge 112$$ data centers within a 50-mile radius) experienced persistent, statistically significant **declines in local unemployment rates** over time, demonstrating that economic benefits spill across county borders.
-* **Air Quality Improvements ($$\text{PM}_{2.5}$$):** Local data center deployment ($$\ge 3$$ establishments per county) is associated with noticeable, multi-year **reductions in ambient fine particulate matter ($$\text{PM}_{2.5}$$)** in rural counties, likely capturing industrial zoning transitions away from legacy heavy manufacturing toward modern, electrified computing facilities.
-* **Wages & Sectoral Restructuring Trade-offs:** In-county data center concentration correlated with **lower average per-capita personal income** and contractions in trade, transportation, and traditional industrial employment, reflecting capital-intensive automation with relatively low on-site operational headcounts.
-* **Policy Implications:** Data centers generate real, measurable local trade-offs rather than uniform economic gains. Policymakers must weigh the benefits of construction activity and regional employment against potential wage compression and industrial displacement.
+* Urban vs. Rural Distribution: Data centers are primarily concentrated in more populous, urban counties (Cluster 1 averages $$\approx 10$$ facilities versus $$\approx 1$$ in Cluster 0), which challenges the common idea that they are mainly built in remote rural areas. However, statistically significant Difference-in-Differences effects were concentrated in rural counties (Cluster 0), where smaller local economies are more sensitive to single facility additions.
+* Regional Employment Spillovers: Counties with higher regional data center exposure ($$\ge 112$$ establishments within a 50-mile buffer) experienced steady, statistically significant reductions in local unemployment rates over time.
+* Air Quality Measures ($$\text{PM}_{2.5}$$): In rural counties, the addition of $$\ge 3$$ in-county data centers correlated with modest, multi-year decreases in ambient $$\text{PM}_{2.5}$$ levels, which may reflect local transitions from legacy industrial land use toward electrified commercial infrastructure.
+* Income and Employment Shifts: In-county data center additions were associated with lower average per-capita personal income and declines in traditional trade, transportation, and industrial employment shares, reflecting capital-intensive operations with limited on-site staffing requirements.
+* Policy Takeaway: The findings point to local trade-offs rather than uniform economic benefits or downsides. Regional planners and policymakers need to weigh short-term construction activity and regional job gains against potential wage compression and industrial shifts.
 
 ---
 
-## Research Focus & Problem Framing
+## Research Focus
 
-* **Core Research Question:** How does the deployment and regional clustering of new data centers relate to county-level employment, wages, environmental quality ($$\text{PM}_{2.5}$$), and business development across the contiguous United States?
-* **Core Metric Definitions:**
-  * **Direct In-County Exposure:** Number of NAICS 518 establishments operating within a county in a given year (partitioned into threshold tiers, e.g., $$\ge 3$$ establishments).
-  * **Regional Spatial Exposure:** Inverse-distance and area-weighted counts of NAICS 518 establishments located within a 50-mile radius of the county centroid (e.g., $$\ge 112$$ regional establishments).
-  * **Socio-Economic & Environmental Outcomes:** County unemployment rate, log per-capita personal income, single-family building permits, sector-specific employment shares, and annual mean $$\text{PM}_{2.5}$$ particulate concentrations ($$\mu\text{g}/\text{m}^3$$).
-* **Methodological Scope:** Contiguous U.S. counties (3,108 counties) observed annually across a 16-year panel (2007–2022).
+* Core Research Question: How does the deployment of a new data center relate to local economic conditions, including employment, income, environmental quality ($$\text{PM}_{2.5}$$), and business development patterns at the county level?
+* Treatment & Exposure Definitions:
+  * In-County Exposure: Number of NAICS 518 establishments operating within a county in a given year ($$\ge 3$$ establishments).
+  * Regional Spatial Exposure: Inverse-distance and area-weighted counts of NAICS 518 establishments located within a 50-mile radius ($$\ge 112$$ nearby establishments).
+  * Outcome Indicators: County unemployment rate, log per-capita personal income, single-family building permits, sector-level employment shares, and annual mean $$\text{PM}_{2.5}$$ particulate concentrations ($$\mu\text{g}/\text{m}^3$$).
+* Geographic Scope: All 3,108 contiguous U.S. counties observed over a 16-year panel (2007–2022).
 
 ---
 
-## Data Pipeline & Spatial Exposure Architecture
+## Data Pipeline & Spatial Exposure
 
-### 1. Multi-Source Federal Ingestion
-To ensure complete open-source reproducibility, we synthesized diverse federal statistical endpoints into a normalized relational database:
-* **Infrastructure & Business Patterns:** U.S. Census County Business Patterns (CBP) extracting NAICS 518 establishment counts, payroll, and employee sizes.
-* **Labor Market Dynamics:** Bureau of Labor Statistics (BLS) Quarterly Census of Employment and Wages (QCEW) and Local Area Unemployment Statistics (LAUS).
-* **Macroeconomics & Income:** Bureau of Economic Analysis (BEA) regional accounts for county GDP and personal income per capita.
-* **Environmental Quality:** EPA Air Quality System (AQS) monitor-level daily measurements aggregated to annual county-level $$\text{PM}_{2.5}$$ means.
-* **Housing Activity:** U.S. Census Building Permits Survey capturing annual single- and multi-family residential construction permits.
+### 1. Data Ingestion & Harmonization
+To ensure full reproducibility, we integrated public county-level records across five federal agencies into a unified relational schema:
+* Infrastructure & Business Patterns: U.S. Census County Business Patterns (CBP) for NAICS 518 establishment counts and employment figures.
+* Labor Market Dynamics: Bureau of Labor Statistics (BLS) QCEW and Local Area Unemployment Statistics (LAUS).
+* Income & Output: Bureau of Economic Analysis (BEA) regional accounts for personal income and county GDP.
+* Environmental Quality: EPA Air Quality System (AQS) monitor records aggregated to annual county $$\text{PM}_{2.5}$$ averages.
+* Housing & Construction: U.S. Census Building Permits Survey for residential building activity.
 
 <p align="center">
   <img src="/images/local_econ_impact_of_data_centers/naics_518_establishments_trend.png" alt="Growth Trend of NAICS 518 Establishments Over Time" width="650" />
 </p>
 
-### 2. Spatial Buffer & Spillover Construction
-Data centers exert influence beyond artificial administrative boundaries through commuting patterns and regional supply chains. We engineered a spatial exposure metric by projecting 50-mile geodesic buffers around each county centroid and computing area-overlap weighted aggregations of neighboring NAICS 518 establishments.
+### 2. Spatial Exposure Construction
+Because county boundaries are administrative lines that do not restrict commuting patterns or supply chains, we constructed 50-mile Euclidean buffers around each county centroid. We then calculated area-weighted overlaps to estimate nearby infrastructure presence, allowing us to evaluate cross-county economic spillovers.
 
 <p align="center">
   <img src="/images/local_econ_impact_of_data_centers/map_dcs_2022.png" alt="Geographic Distribution of Data Centers Across US Counties (2022)" width="750" />
@@ -76,15 +76,15 @@ Data centers exert influence beyond artificial administrative boundaries through
 
 ## Unsupervised Structural Clustering (PCA & K-Means)
 
-To account for profound structural heterogeneity across U.S. counties without introducing circular bias from data center counts, we applied **Principal Component Analysis (PCA)** and **K-Means clustering** strictly on physical county characteristics (total population, land area, and water area).
+To account for baseline differences across counties without introducing circular bias from data center locations, we ran Principal Component Analysis (PCA) and K-Means clustering using strictly physical county characteristics: total population, land area, and water area.
 
 <p align="center">
   <img src="/images/local_econ_impact_of_data_centers/pca_datacenter_plot.png" alt="PCA Projection of Counties Colored by Log Data Center Count" width="650" />
 </p>
 
-* **Cluster 0 (Rural / Lower-Density Counties):** Comprises lower-population counties with larger land areas. Average in-county data center count is $$\approx 1$$.
-* **Cluster 1 (Urban / Metropolitan Counties):** Comprises dense, highly populated metropolitan counties. Average in-county data center count is $$\approx 10$$.
-* **Validation:** Projecting log data center counts onto the PCA space reveals a smooth diagonal gradient—confirming that data centers organically track urban infrastructure and population density even when the unsupervised model has zero direct knowledge of data center locations.
+* Cluster 0 (Rural / Lower-Density Counties): Lower population and larger average land area, with an average of $$\approx 1$$ data center per county.
+* Cluster 1 (Urban / Metropolitan Counties): Higher population density and smaller land areas, averaging $$\approx 10$$ data centers per county.
+* Validation: Projecting log data center counts onto the PCA components shows a smooth gradient along the diagonal, confirming that data center deployments align naturally with urban infrastructure and population centers even when those features are omitted from the clustering model.
 
 <p align="center">
   <img src="/images/local_econ_impact_of_data_centers/clusters.png" alt="K-Means Cluster Partitioning Across the United States" width="700" />
@@ -94,52 +94,44 @@ To account for profound structural heterogeneity across U.S. counties without in
 
 ## Econometric Modeling: Difference-in-Differences
 
-We implemented staggered, two-way fixed effects Difference-in-Differences (DiD) event-study specifications to evaluate dynamic treatment trajectories five years before and five years after data center adoption, rigorously validating the **parallel trends assumption** ($$t < 0$$).
+We estimated staggered, two-way fixed effects Difference-in-Differences (DiD) event-study specifications across both clusters to compare counties before and after data center entry:
 
 $$
 Y_{it} = \alpha_i + \lambda_t + \sum_{k=-5}^{5} \beta_k D_{i, t-k} + \varepsilon_{it}
 $$
 
-Where $$Y_{it}$$ represents the county outcome, $$\alpha_i$$ is the county fixed effect, $$\lambda_t$$ is the year fixed effect, and $$D_{i, t-k}$$ captures leads and lags relative to the treatment year.
+Where $$Y_{it}$$ represents the county outcome, $$\alpha_i$$ is the county fixed effect, $$\lambda_t$$ is the year fixed effect, and $$D_{i, t-k}$$ captures annual leads and lags relative to the treatment year to evaluate the parallel trends assumption ($$t < 0$$).
 
-### Event-Study Findings by Outcome:
-
-1. **Personal Income:**
-   * In rural counties (Cluster 0), adding $$\ge 3$$ data centers leads to a statistically significant, multi-year decline in log personal income per capita.
-   * Urban counties (Cluster 1) exhibit no statistically significant income effect, as high baseline economic diversity absorbs facility-level shifts.
-
-2. **Ambient Air Pollution ($$\text{PM}_{2.5}$$):**
-   * In rural counties, local data center additions correlate with a consistent post-treatment drop in $$\text{PM}_{2.5}$$ levels, supporting the hypothesis that data center developments frequently replace or preempt dirtier heavy industrial uses.
-
-3. **Local Unemployment Rates:**
-   * High regional data center concentration ($$\ge 112$$ within 50 miles) produces a steady, statistically significant reduction in county unemployment rates in rural areas over time.
+### Summary of Results:
+* Personal Income: In rural counties (Cluster 0), adding $$\ge 3$$ data centers was associated with a statistically significant, multi-year decline in log personal income per capita. Urban counties showed no significant shift.
+* Ambient Air Quality ($$\text{PM}_{2.5}$$): In rural counties, local data center additions were followed by a post-treatment decrease in $$\text{PM}_{2.5}$$ levels over time.
+* Unemployment: Higher regional data center concentration ($$\ge 112$$ nearby establishments) was associated with a steady reduction in unemployment rates in rural areas.
 
 ---
 
 ## Machine Learning Counterfactuals (Conditional VAE)
 
-To complement quasi-experimental econometric models, we designed a deep **Conditional Variational Autoencoder (CVAE)** in PyTorch to explore non-linear counterfactual county trajectories:
-* **Architecture:** Symmetric encoder-decoder network:
+To complement the DiD framework, we trained a Conditional Variational Autoencoder (CVAE) in PyTorch to explore non-linear counterfactual county trajectories:
+* Architecture: Symmetric encoder-decoder network:
   $$\text{Input (136)} \rightarrow 128 \rightarrow 16 \rightarrow \text{Latent (8)} \rightarrow 16 \rightarrow 128 \rightarrow \text{Output (136)}$$
-* **Conditioning Vectors:** Year embeddings ($$16 \times 8$$) and log data center count tier embeddings ($$6 \times 4$$).
-* **Counterfactual Perturbation:** By holding latent socio-economic vectors constant while perturbing the data center conditioning embedding, the decoder reconstructs a synthetic "parallel universe" estimate for an identical county under altered infrastructure scenarios.
-* **Methodological Takeaway:** While the CVAE successfully learned high-dimensional structural relationships across 136 multi-sector features, the quasi-experimental DiD framework proved superior for interpretable causal policy analysis.
+* Conditioning: Embedded vectors for year ($$16 \times 8$$) and log data center tier ($$6 \times 4$$).
+* Evaluation: While the CVAE learned structured representations across 136 county features, perturbing the latent data center vector did not yield easily interpretable economic conclusions. The quasi-experimental DiD approach provided clearer, more reliable causal estimates for policy evaluation.
 
 ---
 
-## Discussion, Limitations & Real-World Impact
+## Discussion & Limitations
 
-### Methodological Limitations:
-* **NAICS 518 Aggregation:** While NAICS 518 provides an open, nationwide benchmark, it encompasses general web hosting and data processing services alongside hyperscale facilities.
-* **Spatial Buffer Simplifications:** 50-mile centroid buffers assume isotropic commuting corridors, which may be less precise in geographically vast Western counties with heterogeneous topography.
+### Limitations:
+* NAICS 518 Scope: NAICS 518 is a helpful, standardized proxy, but it includes web hosting and data processing services alongside dedicated hyperscale campuses.
+* Spatial Approximations: 50-mile centroid buffers provide a regional approximation, which can be less precise in large western counties with complex topography.
 
-### Practical Policy Takeaways:
-* **Targeted Regional Planning:** Economic gains from data centers (unemployment reduction, construction activity) operate regionally, while specific trade-offs (income shifts, power and land demands) concentrate locally.
-* **Informed Incentive Structuring:** Municipalities considering aggressive tax abatements must balance short-term construction windfalls against long-term operational headcount realities.
+### Conclusions:
+Overall, the project suggests that data centers bring measurable local trade-offs rather than unconditional windfalls. While regional presence supports lower unemployment and increased construction, local facility concentration can lead to lower average personal income and shifts in traditional employment sectors.
 
 ---
 
 [View Full Technical Write-Up Website](https://loganrosell.github.io/local-economic-impacts-of-data-centers/) | [Download Capstone Poster (PDF)](/images/local_econ_impact_of_data_centers/capstone_poster.pdf)
+
 
 
 
