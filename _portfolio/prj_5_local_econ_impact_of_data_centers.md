@@ -7,8 +7,9 @@ use_math: true
 katex: true
 ---
 
-**Project Writeup Website:** [The-Local-Economic-Impact-of-Data-Centers](https://github.com/LoganRosell/local-economic-impacts-of-data-centers)
-**Project Workbook Repository:** [local-economic-impact-of-data-centers-workbook](https://github.com/LoganRosell/local-economic-impact-of-data-centers-workbook)
+**Project Writeup Website:** [The-Local-Economic-Impact-of-Data-Centers Write-Up](https://loganrosell.github.io/local-economic-impacts-of-data-centers/)
+**Project Writeup Website Repository:** [The-Local-Economic-Impact-of-Data-Centers Write-Up Repo](https://github.com/LoganRosell/local-economic-impacts-of-data-centers)
+**Project Workbook Repository:** [local-economic-impact-of-data-centers-workbook repo](https://github.com/LoganRosell/local-economic-impact-of-data-centers-workbook)
 
 
 ## Overview
