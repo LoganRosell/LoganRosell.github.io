@@ -6,7 +6,7 @@ redirect_from:
   - /about/
   - /about.html
 header:
-  image: "books_3.png"
+  image: "books_4.png"
 ---
 
 I am a economics and policy nerd currently completing a Master’s of Data Science at Willamette University. My background in health-care IT, revenue operations, financial analysis, and academic research informs my analytical and curious mindset. 
