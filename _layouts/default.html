@@ -18,6 +18,19 @@ layout: compress
 
     {{ content }}
 
+    {% if page.footer_image or page.footer.image %}
+      {% assign footer_img = page.footer_image | default: page.footer.image %}
+      <div class="page__footer-image">
+        <img src=
+          {% if footer_img contains "://" %}
+            "{{ footer_img }}"
+          {% else %}
+            "{{ footer_img | prepend: '/images/' | prepend: base_path }}"
+          {% endif %}
+          alt="" class="page__footer-image-img">
+      </div>
+    {% endif %}
+
     <div class="page__footer">
       <footer>
         {% include footer/custom.html %}

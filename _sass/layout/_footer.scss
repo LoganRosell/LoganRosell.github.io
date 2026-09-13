@@ -2,6 +2,28 @@
    FOOTER
    ========================================================================== */
 
+.page__footer-image {
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: 0;
+  padding: 0;
+  line-height: 0;
+  display: block;
+  clear: both;
+}
+
+.page__footer-image-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  -ms-interpolation-mode: bicubic;
+}
+
+.page__footer-image + .page__footer {
+  margin-top: 0;
+  border-top: 0;
+}
+
 .page__footer {
   @include clearfix;
   background-color: var(--global-footer-bg-color);
