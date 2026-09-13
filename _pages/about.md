@@ -6,8 +6,7 @@ redirect_from:
   - /about/
   - /about.html
 header:
-  overlay_image: "about_hero.jpg"
-  overlay_filter: 0.5
+  image: "about_hero.jpg"
 ---
 
 I am a economics and policy nerd currently completing a Master’s of Data Science at Willamette University. My background in health-care IT, revenue operations, financial analysis, and academic research informs my analytical and curious mindset. 

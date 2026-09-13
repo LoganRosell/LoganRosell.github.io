@@ -4,7 +4,7 @@ layout: default
 
 {% include base_path %}
 
-{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+{% if page.header.overlay_color or page.header.overlay_image %}
   {% include page__hero.html %}
 {% endif %}
 
@@ -24,6 +24,19 @@ layout: default
     {% if page.modified %}<meta itemprop="dateModified" content="{{ page.modified | date: "%B %d, %Y" }}">{% endif %}
 
     <div class="page__inner-wrap">
+      {% if page.header.image %}
+        <div class="page__hero-image-wrap" style="position: relative; margin-bottom: 1.5em;">
+          {% if page.header.image contains "://" %}
+            <img src="{{ page.header.image }}" alt="{{ page.title }}" class="page__hero-image">
+          {% else %}
+            <img src="{{ page.header.image | prepend: '/images/' | prepend: base_path }}" alt="{{ page.title }}" class="page__hero-image">
+          {% endif %}
+          {% if page.header.caption %}
+            <span class="page__hero-caption">{{ page.header.caption | markdownify | remove: "<p>" | remove: "</p>" }}</span>
+          {% endif %}
+        </div>
+      {% endif %}
+
       {% unless page.header.overlay_color or page.header.overlay_image %}
         <header>
           {% if page.title %}<h1 class="page__title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
